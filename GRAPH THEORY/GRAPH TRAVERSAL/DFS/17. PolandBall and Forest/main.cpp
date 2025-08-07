@@ -1,0 +1,74 @@
+// https://codeforces.com/contest/755/problem/C
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+#define ll             long long int 
+#define ulli           unsigned long long int 
+#define li             long int 
+#define ff(i,a,b)      for(int i=a;i<b;i++)
+#define fb(i,b,a)      for(int i=b;i>=a;i--)
+#define w(t)           while(--t >= 0)
+#define l(s)           s.length()
+#define ci(n)          cin>>n;
+#define fast           ios_base::sync_with_stdio(false);
+#define sa(a,n)        sort(a,a+n)
+#define sv(v)          sort(v.begin(),v.end())
+#define cy             cout<<"YES\n"
+#define cn             cout<<"NO\n"
+#define nl             cout<<"\n"
+#define minus          cout<<"-1\n";
+#define vi             vector<int>
+#define pb             push_back
+#define tc             int t; cin>>t;
+#define pp             pair<int,int>
+#define input(a,n)     for(int i=0;i<n;i++) cin>>a[i];
+#define mod            1000000007
+#define co(n)          cout<<n;
+#define ret            return 0
+#define mi             map<int,int>
+#define output(a,n)    for(int i=0;i<n;i++) cout<<a[i]<<" ";   
+#define forn(i, n)     ff(i, 0, n)
+#define sz(v)          int((v).size())
+
+// unordered_map<int, vector<int>> mp;
+void dfs(int i, vector<int> & vis , vector<vector<int>>& g){
+	vis[i]=1;
+	for(auto it: g[i]){
+		if(!vis[it]){
+			dfs(it, vis, g);
+		}
+	}
+	return;
+}
+
+void solve(){
+	int n; cin>>n;
+	vi temp(n);
+	ff(i,0,n) ci(temp[i]);
+	vector<vector<int>> g(n+1);
+	for(int i=0; i<n; i++){
+		g[i+1].push_back(temp[i]);
+		g[temp[i]].push_back(i+1);
+	}
+	int cnt = 0 ;
+	vector<int> vis(n+1);
+	for(int i=1; i<=n; i++){
+		if(!vis[i]){
+			dfs(i,vis, g);
+			cnt++;
+		}
+	}
+	cout << cnt << "\n";
+	return;
+}
+
+int main(){
+	fast;
+	int t=1;
+	while(t--){
+		solve();
+	}
+	return 0;
+}

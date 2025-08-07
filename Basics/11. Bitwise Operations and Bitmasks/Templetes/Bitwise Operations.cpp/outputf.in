@@ -1,0 +1,17 @@
+AND result: 8
+OR result: 29
+XOR result: 21
+NOT result: -13
+Left shift result: 12
+Right shift result: 3
+1 << x result: -2147483648
+1LL << x result: 2147483648
+
+Check 2nd bit of 11: 0
+Set bits in 11 are at positions: 0 1 3 
+Number of set bits in 11: 3
+Is 11 even? 0
+11 after setting 2nd bit: 15
+15 after unsetting 2nd bit: 11
+11 after toggling 3rd bit: 3
+Is 8 a power of 2: 1
