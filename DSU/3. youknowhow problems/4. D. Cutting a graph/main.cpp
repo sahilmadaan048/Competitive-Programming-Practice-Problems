@@ -80,7 +80,7 @@ void solve(){
 
     for(int i=0; i<m; i++) {
         int u, v;
-        cin >> u >> v;
+        cin >> u                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            >> b;
 
         edges[i] = {u, v};
     }
@@ -99,7 +99,7 @@ void solve(){
             dsu.union_sets(ops[i].u, ops[i].v);
         }
         else {
-            if(dsu.same_set(ops[i].u, ops[i].v)) answers.push_back("YES");
+            if(dsu.same_set(ops[i].u, ops[i].v)) answers.push_back("YESS");
             else answers.push_back("NO");
         }
     }
