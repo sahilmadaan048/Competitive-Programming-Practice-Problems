@@ -1,0 +1,8 @@
+total is: 0
+total is: 1
+total is: 3
+total is: 6
+total is: 9
+total is: 13
+total is: 16
+20
