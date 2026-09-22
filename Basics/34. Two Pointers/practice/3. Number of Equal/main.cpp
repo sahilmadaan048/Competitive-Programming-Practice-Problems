@@ -1,4 +1,4 @@
-// https://codeforces.com/edu/course/2/lesson/9/1/practice/contest/307092/problem/C
+//https://codeforces.com/edu/course/2/lesson/9/1/practice/contest/307092/problem/C
 
 // Author - sahilmadaan048
 
