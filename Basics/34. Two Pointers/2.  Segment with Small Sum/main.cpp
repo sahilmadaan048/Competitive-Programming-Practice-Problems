@@ -1,152 +1,76 @@
-// // // https://codeforces.com/edu/course/2/lesson/9/2/practice/contest/307093/problem/A
+// https://codeforces.com/edu/course/2/lesson/9/2/practice/contest/307093/problem/A
 
-// // // #include <bits/stdc++.h>
-// // // using namespace std;
+// Author - sahilmadaan048
 
-// // // #define ll long long int 
-// // // #define ulli unsigned long long int 
-// // // #define li long int 
-// // // #define ff(i,a,b) for(int i=a;i<b;i++)
-// // // #define fb(i,b,a) for(int i=b;i>=a;i--)
-// // // #define w(t) while(--t >= 0)
-// // // #define l(s) s.length()
-// // // #define ci(n) cin >> n
-// // // #define fast ios_base::sync_with_stdio(false); cin.tie(nullptr);
-// // // #define sa(a,n) sort(a,a+n)
-// // // #define sv(v) sort(v.begin(), v.end())
-// // // #define cy cout << "YES\n"
-// // // #define cn cout << "NO\n"
-// // // #define nl cout << "\n"
-// // // #define minus cout << "-1\n"
-// // // #define vi vector<int>
-// // // #define pb push_back
-// // // #define tc int t; cin >> t
-// // // #define pp pair<int, int>
-// // // #define input(a,n) for(int i=0;i<n;i++) cin >> a[i];
-// // // #define mod 1000000007
-// // // #define co(n) cout << n
-// // // #define ret return 0
-// // // #define mi map<int, int>
-// // // #define output(a,n) for(int i=0;i<n;i++) cout << a[i] << (i < n - 1 ? " " : "");   
-// // // #define forn(i, n) ff(i, 0, n)
-// // // #define sz(v) int((v).size())
-
-// // // void solve() {
-// // //     int n, s; 
-// // //     cin >> n >> s;
-// // //     vi temp(n);
-// // //     ff(i, 0, n) ci(temp[i]);
-    
-// // //     int sum = 0;
-// // //     int count = 0;
-    
-// // //     for (int i = 0; i < n; ++i) {
-// // //         sum += temp[i];
-// // //         if (sum <= s) {
-// // //             count++;
-// // //         } else {
-// // //             // If the sum exceeds s, reset the sum to current element
-// // //             sum = temp[i]; 
-// // //             // Check if the new sum is still within the limit
-// // //             if (sum <= s) {
-// // //                 count++;
-// // //             }
-// // //         }
-// // //     }
-    
-// // //     cout << count << "\n";
-// // // }
-
-// // // int main() {
-// // //     fast;
-// // //     int t = 1; // You can change this to read multiple test cases if needed
-// // //     while (t--) {
-// // //         solve();
-// // //     }
-// // //     return 0;
-// // // }
-
-
-// // #include <bits/stdc++.h>
-// // using namespace std;
-// // #define ll long long
-// // ll M=1e9+7;
-
-// // void solve(){
-// //     ll n,s;
-// //     cin>>n>>s;
-// //     vector<ll> a(n);
-// //     for(int i=0;i<n;i++)
-// //         cin>>a[i];
-// //     ll ans =  0;
-// //     ll l = 0;
-// //     ll r = 0;
-// //     ll sum = 0;
-// //     for(;r<n;r++){
-// //         sum+=a[r];
-// //         while(sum>s){
-// //             sum-=a[l];
-// //             l++;
-// //         }
-// //         ans+=(r-l+1);
-// //     }
-    
-// //     cout<<ans<<endl;
-
-// // }
-
-// // int main()
-// // {
-// //     ios_base::sync_with_stdio(false);
-// //     cin.tie(0);
-// //     //int t;
-// //     //cin>>t;
-// //     //while(t--)
-// //         solve();
-
-
-
-// // return 0;
-// // }
-
-#include <bits/stdc++.h>
-using namespace std;
-
-#define ll long long int 
+#include "bits/stdc++.h"
+#define int long long
+#define uint unsigned long long
 #define vi vector<int>
-#define ff(i,a,b) for(int i=a;i<b;i++)
-#define fast ios_base::sync_with_stdio(false); cin.tie(nullptr);
+#define vvi vector<vi >
+#define vb vector<bool>
+#define vvb vector<vb >
+#define fr(i,n) for(int i=0; i<(n); i++)
+#define rep(i,a,n) for(int i=(a); i<=(n); i++)
+#define nl cout<<"\n"
+#define dbg(var) cout<<#var<<"="<<var<<" "
+#define all(v) v.begin(),v.end()
+#define sz(v) (int)(v.size())
+#define srt(v)  sort(v.begin(),v.end())         // sort 
+#define mxe(v)  *max_element(v.begin(),v.end())     // find max element in vector
+#define mne(v)  *min_element(v.begin(),v.end())     // find min element in vector
+#define unq(v)  v.resize(distance(v.begin(), unique(v.begin(), v.end())));
+// make sure to sort before applying unique // else only consecutive duplicates would be removed 
+#define bin(x,y)  bitset<y>(x) 
+using namespace std;
+int MOD=1e9+7;      // Hardcoded, directly change from here for functions!
 
-void findLongestGoodSegment() {
-    int n, s;
-    cin >> n >> s; // Read the size of the array and the maximum allowed sum
-    vi a(n);
-    ff(i, 0, n) cin >> a[i]; // Read the elements of the array
 
-    int left = 0, current_sum = 0, max_length = 0; // Initialize pointers and variables
+void modadd(int &a , int b) {a=((a%MOD)+(b%MOD))%MOD;}
+void modsub(int &a , int b) {a=((a%MOD)-(b%MOD)+MOD)%MOD;}
+void modmul(int &a , int b) {a=((a%MOD)*(b%MOD))%MOD;}
+// ================================== take ip/op like vector,pairs directly!==================================
+template<typename typC,typename typD> istream &operator>>(istream &cin,pair<typC,typD> &a) { return cin>>a.first>>a.second; }
+template<typename typC> istream &operator>>(istream &cin,vector<typC> &a) { for (auto &x:a) cin>>x; return cin; }
+template<typename typC,typename typD> ostream &operator<<(ostream &cout,const pair<typC,typD> &a) { return cout<<a.first<<' '<<a.second; }
+template<typename typC,typename typD> ostream &operator<<(ostream &cout,const vector<pair<typC,typD>> &a) { for (auto &x:a) cout<<x<<'\n'; return cout; }
+template<typename typC> ostream &operator<<(ostream &cout,const vector<typC> &a) { int n=a.size(); if (!n) return cout; cout<<a[0]; for (int i=1; i<n; i++) cout<<' '<<a[i]; return cout; }
+// ===================================END Of the input module ==========================================
 
-    // Iterate through the array with the right pointer
-    for (int right = 0; right < n; ++right) {
-        current_sum += a[right]; // Add the current element to the sum
+void solve(){
+    int n, s; cin >> n >> s;
 
-        // Move the left pointer to maintain the sum ≤ s
-        while (current_sum > s && left <= right) {
-            current_sum -= a[left++]; // Remove the leftmost element from the sum
+    vector<int> a(n);
+
+    for(int i=0; i<n; i++) {
+        cin >> a[i];
+    }
+
+    int i = 0;  
+    int maxi = 0;
+    int cur = 0;
+
+    for(int j=0; j<n; j++) {
+        cur += a[j];
+
+        if(cur > s) {
+            cur -= a[i];
+            i++;
         }
-
-        // Update max_length with the current valid segment length
-        max_length = max(max_length, right - left + 1);
+        maxi = max(j - i + 1, maxi);
     }
-
-    cout <<  max_length << "\n"; // Output the result
+    cout << maxi << endl;
 }
 
-int main() {
-    fast; // Optimize input/output
-    int t = 1; // You can change this to read multiple test cases if needed
-    while (t--) {
-        findLongestGoodSegment(); // Call the function to find the longest good segment
-    }
-    return 0;
-}
+int32_t main()
+{
 
+   ios_base::sync_with_stdio(false);
+   cin.tie(NULL);
+
+   int T = 1;
+   while (T--)
+   {
+    solve();
+}
+return 0;
+}
