@@ -1,0 +1,6 @@
+bob
+alice
+alice
+bob
+bob
+alice
