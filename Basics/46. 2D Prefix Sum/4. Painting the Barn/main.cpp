@@ -38,6 +38,11 @@ template<typename typC> ostream &operator<<(ostream &cout,const vector<typC> &a)
 
 
 void solve(){
+    //   #ifndef ONLINE_JUDGE
+    //     freopen("paintbarn.in", "r", stdin);
+    //     freopen("paintbarn.out", "w", stdout);
+    // #endif // ONLINE_JUDGE
+
     int n, k; cin >> n >> k; int sz = 2 * n + 5;
     const int MAX = 1001;
 
