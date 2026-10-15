@@ -1,3 +1,5 @@
+// https://codeforces.com/contest/816/problem/B
+
 // Author - sahilmadaan048
 
 #include "bits/stdc++.h"
@@ -34,9 +36,45 @@ template<typename typC,typename typD> ostream &operator<<(ostream &cout,const ve
 template<typename typC> ostream &operator<<(ostream &cout,const vector<typC> &a) { int n=a.size(); if (!n) return cout; cout<<a[0]; for (int i=1; i<n; i++) cout<<' '<<a[i]; return cout; }
 // ===================================END Of the input module ==========================================
 
+const int MAX_TEMP = 200000 + 5;
 
 void solve(){
-   
+   int n, k, q; cin >> n >> k >> q;
+
+   vector<int> diff(MAX_TEMP, 0);
+   vector<int> admissible(MAX_TEMP, 0);
+
+   for(int i=0; i<n; i++) {
+      int l, r; cin >> l >> r;
+
+      diff[l] += 1;
+      diff[r+1] -= 1;
+   }
+
+
+   // convert difference array to coverage count
+   for(int i=1; i<MAX_TEMP; i++) {
+      diff[i] += diff[i-1];
+   }
+
+
+   // mark positions covered at leas k times
+   for(int i=0; i<MAX_TEMP; i++) {
+      if(diff[i] >= k) {
+         admissible[i] = 1;
+      }
+   }
+
+   // prefix sum over admissible positions
+   for(int i=1; i<MAX_TEMP; i++) {
+      admissible[i] += admissible[i-1];
+   }
+
+   // answer the queries
+   while(q--) {
+      int l, r; cin >> l >> r;
+      cout << admissible[r] - admissible[l-1] << endl;
+   }
 }
 
 int32_t main()
@@ -48,7 +86,7 @@ int32_t main()
    int T = 1;
    while (T--)
    {
-    solve();
-}
-return 0;
+     solve();
+  }
+  return 0;
 }
