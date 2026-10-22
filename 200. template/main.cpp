@@ -36,37 +36,7 @@ template<typename typC> ostream &operator<<(ostream &cout,const vector<typC> &a)
 
 
 void solve(){
-    int n, k; cin >> n >> k;
-
-    vector<int> a(n);
-
-    for(int i=0; i<n; i++) {
-        cin >> a[i];
-    }
-
-    int total = 0;
-    int current = 0;
-
-    unordered_map<int, int> mpp;
-
-    int left = 0;
-
-    for(int i=0; i<n; i++) {
-            mpp[a[i]]++;
-
-            while(mpp.size() > k) {
-                mpp[a[left]]--;
-                if(mpp[a[left]] == 0) { 
-                    mpp.erase(a[left]);
-                }
-                left++;
-            }
-            // cout << "total is: " << total << endl;
-            total += i - left + 1;
-   }
-
-   cout << total << endl;
-
+   
 }
 
 int32_t main()
