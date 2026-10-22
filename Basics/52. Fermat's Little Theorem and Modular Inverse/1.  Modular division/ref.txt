@@ -1,0 +1,12 @@
+## 5. Complexity Analysis
+
+- **Time Complexity:** O(log n) — Binary exponentiation calculates the modular inverse efficiently.
+- **Space Complexity:** O(1) — Only a constant number of variables are used.
+
+**Competitive Programming Takeaway:**
+
+Whenever you need to calculate a / b mod n, where n is prime and b is not divisible by n, use Fermat's Little Theorem:
+
+**a / b mod n = (a × b^(n−2)) mod n**
+
+Use binary exponentiation to compute b^(n−2) mod n efficiently.
